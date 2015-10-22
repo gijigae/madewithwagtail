@@ -13,10 +13,10 @@ from sys import path
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 # Absolute filesystem path to the Django project directory:
-DJANGO_ROOT = dirname(dirname(dirname(abspath(__file__))))
+DJANGO_ROOT = dirname(dirname(dirname(abspath(__file__)))) # /Users/gijigae/Development/madewithwagtail
 
 # Absolute filesystem path to the top-level project folder:
-PROJECT_ROOT = dirname(DJANGO_ROOT)
+PROJECT_ROOT = dirname(DJANGO_ROOT) # /Users/gijigae/Development
 
 # Site name:
 SITE_NAME = basename(DJANGO_ROOT)
@@ -54,7 +54,7 @@ except NameError:
             SECRET_KEY = ''.join(
                 [random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)]
             )
-            secret = file(SECRET_FILE, 'w')
+            secret = open(SECRET_FILE, 'w')
             secret.write(SECRET_KEY)
             secret.close()
         except IOError:
@@ -130,9 +130,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'madewithwagtail',
-        'USER': 'postgres',
-        'HOST': '',  # Set to empty string for localhost.
-        'PORT': '',  # Set to empty string for default.
+
         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
@@ -151,7 +149,8 @@ DATE_FORMAT = 'j F Y'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+#print(PROJECT_ROOT) # /Users/gijigae/Development
+#print(DJANGO_ROOT)
 STATIC_ROOT = join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
@@ -162,7 +161,7 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (
-    join(DJANGO_ROOT, 'static'),
+    join(DJANGO_ROOT, 'core', 'static'),
 )
 
 MEDIA_ROOT = join(PROJECT_ROOT, 'media')
