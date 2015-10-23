@@ -74,12 +74,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'compressor',
     'taggit',
     'modelcluster',
     'captcha',
+
     'wagtailcaptcha',
-    'core',
     'wagtail.contrib.wagtailsitemaps',
     'wagtail.contrib.wagtailroutablepage',
     'wagtail.wagtailcore',
@@ -93,6 +94,8 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (
